@@ -1,6 +1,7 @@
 # Hybrid Web Lab
 
 JavaScript, React, View(플래너) 3가지 스타일의 웹 프로젝트를 한 랜딩 페이지에서 소개하는 실습 저장소입니다.
+바로가기 : https://hongsik-lee.github.io/hybrid-web-lab/landing
 
 ## 프로젝트 개요
 

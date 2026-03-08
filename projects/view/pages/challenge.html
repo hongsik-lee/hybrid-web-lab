@@ -8,15 +8,35 @@
 </head>
 <body>
     <main class="subpage-shell">
-        <article class="subpage-card">
+        <article class="subpage-card challenge-page">
             <a href="../index.html" class="back-link">← 홈으로</a>
-            <h1 id="challengeDetailTitle">오늘의 챌린지</h1>
-            <p id="challengeDetailDesc">오전 10시까지 오늘 목표 3가지를 완료하는 것이 목표입니다.</p>
-            <ul>
-                <li><a href="./action.html?type=plan">운동 계획 확인하기</a></li>
-                <li><a href="./action.html?type=timer">집중 타이머 시작하기</a></li>
-                <li><a href="./action.html?type=share">팀원과 진행 상황 공유하기</a></li>
-            </ul>
+            <header class="challenge-hero">
+                <p class="challenge-kicker">TODAY MISSION</p>
+                <h1 id="challengeDetailTitle">오늘의 챌린지</h1>
+                <p id="challengeDetailDesc">오전 10시까지 오늘 목표 3가지를 완료하는 것이 목표입니다.</p>
+            </header>
+
+            <section class="challenge-metrics" aria-label="챌린지 현황">
+                <article class="metric-card">
+                    <p class="metric-label">진행 상태</p>
+                    <p class="metric-value" id="challengeStatusText">진행 중</p>
+                </article>
+                <article class="metric-card">
+                    <p class="metric-label">연속 달성</p>
+                    <p class="metric-value"><span id="challengeStreak">1</span>일</p>
+                </article>
+                <article class="metric-card">
+                    <p class="metric-label">누적 완료</p>
+                    <p class="metric-value"><span id="challengeTotalDone">0</span>회</p>
+                </article>
+            </section>
+
+            <section class="challenge-actions" aria-label="빠른 실행">
+                <a class="action-link" href="./action.html?type=plan">운동 계획 확인하기</a>
+                <a class="action-link" href="./action.html?type=timer">집중 타이머 시작하기</a>
+                <a class="action-link" href="./action.html?type=share">팀원과 진행 상황 공유하기</a>
+            </section>
+
             <button type="button" class="inline-btn" id="completeChallengeBtn">챌린지 완료 처리</button>
         </article>
     </main>

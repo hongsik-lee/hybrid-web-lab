@@ -1,5 +1,11 @@
 const STORAGE_KEY = 'viewPlannerData';
 let timerIntervalId = null;
+let homeDayInitialized = false;
+
+function getTodayDayCode() {
+    const map = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    return map[new Date().getDay()];
+}
 
 const defaultData = {
     user: {
@@ -12,7 +18,7 @@ const defaultData = {
         description: '오전 10시 전까지 계획을 완료하세요',
         completedCount: 0
     },
-    selectedDay: 'wed',
+    selectedDay: getTodayDayCode(),
     timer: {
         durationSec: 0,
         remainingSec: 0,
@@ -262,6 +268,12 @@ function renderHomePage() {
     }
 
     const data = syncTimerFromElapsed(loadData());
+
+    if (!homeDayInitialized) {
+        data.selectedDay = getTodayDayCode();
+        homeDayInitialized = true;
+    }
+
     saveData(data);
 
     helloText.textContent = `안녕하세요, ${data.user.name || '사용자'}님`;
@@ -279,28 +291,12 @@ function renderHomePage() {
         challengeDesc.textContent = `${data.challenge.description} (완료 ${data.challenge.completedCount}회)`;
     }
 
-    const selectedDay = data.selectedDay;
-    const dayLinks = document.querySelectorAll('.day-pill');
-    dayLinks.forEach((link) => {
-        const href = link.getAttribute('href') || '';
-        const active = href.includes(`day=${selectedDay}`);
-        link.classList.toggle('active', active);
-
-        link.addEventListener('click', () => {
-            const params = new URL(href, window.location.origin).searchParams;
-            const day = params.get('day');
-            if (!day) {
-                return;
-            }
-            const nextData = loadData();
-            nextData.selectedDay = day;
-            saveData(nextData);
-        });
-    });
+    const selectedDay = data.selectedDay || getTodayDayCode();
+    renderDayStrip(selectedDay);
 
     const selectedPlans = data.plans.filter((plan) => plan.day === selectedDay);
-    const mainPlan = selectedPlans[0] || data.plans[0];
-    const subPlan = selectedPlans[1] || data.plans[1] || data.plans[0];
+    const mainPlan = selectedPlans[0] || null;
+    const subPlan = selectedPlans[1] || null;
 
     const mainMap = {
         title: document.getElementById('mainPlanTitle'),
@@ -325,6 +321,24 @@ function renderHomePage() {
 
     function bindCardPlan(map, plan) {
         if (!map || !plan) {
+            const button = map.done.cloneNode(true);
+            map.done.replaceWith(button);
+            map.done = button;
+
+            map.title.textContent = '해당 날짜 계획이 없습니다';
+            map.date.textContent = `${dayLabel(selectedDay)}요일`;
+            map.time.textContent = '일정을 추가해보세요';
+            map.location.textContent = '-';
+            map.priority.textContent = '안내';
+            map.link.setAttribute('href', './pages/plans.html');
+            map.link.textContent = '일정 추가하기';
+            map.done.classList.remove('is-done');
+            map.done.textContent = '완료';
+            map.done.disabled = true;
+
+            if (map.trainer) {
+                map.trainer.textContent = '트레이너 미정';
+            }
             return;
         }
 
@@ -334,6 +348,8 @@ function renderHomePage() {
         map.location.textContent = plan.location;
         map.priority.textContent = plan.priority;
         map.link.setAttribute('href', plan.detailPath);
+        map.link.textContent = '상세 보기';
+        map.done.disabled = false;
 
         if (map.trainer) {
             map.trainer.textContent = plan.trainer || '트레이너 미정';
@@ -383,6 +399,55 @@ function renderHomePage() {
     bindOnboarding();
     bindTimerActions();
     renderTimerUI();
+}
+
+function renderDayStrip(selectedDay) {
+    const dayStrip = document.getElementById('dayStrip');
+    if (!dayStrip) {
+        return;
+    }
+
+    const today = new Date();
+    const start = new Date(today);
+    start.setDate(today.getDate() - today.getDay());
+
+    const codes = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    dayStrip.innerHTML = '';
+
+    for (let i = 0; i < 7; i += 1) {
+        const date = new Date(start);
+        date.setDate(start.getDate() + i);
+        const code = codes[date.getDay()];
+
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = `day-pill ${code === selectedDay ? 'active' : ''}`;
+        pill.dataset.day = code;
+        pill.innerHTML = `<span>${dayLabel(code)}</span><strong>${date.getDate()}</strong>`;
+
+        const isToday =
+            date.getFullYear() === today.getFullYear() &&
+            date.getMonth() === today.getMonth() &&
+            date.getDate() === today.getDate();
+
+        if (isToday) {
+            pill.classList.add('is-today');
+        }
+
+        pill.addEventListener('click', () => {
+            const nextData = loadData();
+            nextData.selectedDay = code;
+            saveData(nextData);
+            renderHomePage();
+        });
+
+        dayStrip.appendChild(pill);
+    }
+
+    const activePill = dayStrip.querySelector('.day-pill.active');
+    if (activePill) {
+        activePill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
 }
 
 function bindOnboarding() {
@@ -706,8 +771,36 @@ function renderStatsPage() {
     const rate = data.plans.length ? Math.round((doneCount / data.plans.length) * 100) : 0;
 
     doneEl.textContent = `완료한 계획: ${doneCount}개`;
-    document.getElementById('statsPending').textContent = `진행 중: ${pendingCount}개`;
-    document.getElementById('statsRate').textContent = `달성률: ${rate}% (챌린지 완료 ${data.challenge.completedCount}회)`;
+    const pendingEl = document.getElementById('statsPending');
+    const rateEl = document.getElementById('statsRate');
+    if (pendingEl) {
+        pendingEl.textContent = `진행 중: ${pendingCount}개`;
+    }
+    if (rateEl) {
+        rateEl.textContent = `달성률: ${rate}% (챌린지 완료 ${data.challenge.completedCount}회)`;
+    }
+
+    const doneValueEl = document.getElementById('statsDoneValue');
+    const pendingValueEl = document.getElementById('statsPendingValue');
+    const rateValueEl = document.getElementById('statsRateValue');
+    const progressFillEl = document.getElementById('statsProgressFill');
+    const progressLabelEl = document.getElementById('statsProgressLabel');
+
+    if (doneValueEl) {
+        doneValueEl.textContent = String(doneCount);
+    }
+    if (pendingValueEl) {
+        pendingValueEl.textContent = String(pendingCount);
+    }
+    if (rateValueEl) {
+        rateValueEl.textContent = String(rate);
+    }
+    if (progressFillEl) {
+        progressFillEl.style.width = `${rate}%`;
+    }
+    if (progressLabelEl) {
+        progressLabelEl.textContent = `${rate}%`;
+    }
 }
 
 function renderProfilePage() {
@@ -780,6 +873,21 @@ function renderChallengePage() {
     const descEl = document.getElementById('challengeDetailDesc');
     titleEl.textContent = data.challenge.title;
     descEl.textContent = `${data.challenge.description} (누적 완료 ${data.challenge.completedCount}회)`;
+
+    const completedPlans = data.plans.filter((plan) => plan.completed).length;
+    const statusTextEl = document.getElementById('challengeStatusText');
+    const streakEl = document.getElementById('challengeStreak');
+    const totalDoneEl = document.getElementById('challengeTotalDone');
+
+    if (statusTextEl) {
+        statusTextEl.textContent = completedPlans >= 2 ? '목표 근접' : '진행 중';
+    }
+    if (streakEl) {
+        streakEl.textContent = String(Math.max(1, data.challenge.completedCount));
+    }
+    if (totalDoneEl) {
+        totalDoneEl.textContent = String(data.challenge.completedCount);
+    }
 
     const button = document.getElementById('completeChallengeBtn');
     if (!button || button.dataset.bound === 'true') {

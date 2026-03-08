@@ -349,6 +349,7 @@ body {
 .calendar-day {
   aspect-ratio: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
@@ -356,6 +357,22 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.875rem;
+  padding: 0.25rem;
+}
+.calendar-day .day-number {
+  font-weight: 700;
+  line-height: 1;
+}
+.calendar-day .day-preview {
+  margin-top: 0.1875rem;
+  max-width: 100%;
+  font-size: 0.625rem;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.8;
 }
 .calendar-day:hover:not(.empty) {
   background: rgba(255, 255, 255, 0.1);
@@ -369,6 +386,128 @@ body {
   background: linear-gradient(135deg, #06b6d4, #3b82f6);
   font-weight: 700;
   box-shadow: 0 0 0.625rem rgba(6, 182, 212, 0.5), 0 0 1.875rem rgba(59, 130, 246, 0.4);
+}
+.calendar-day.selected {
+  box-shadow: inset 0 0 0 0.125rem rgba(6, 182, 212, 0.8);
+}
+.calendar-day.has-schedule {
+  position: relative;
+}
+.calendar-day.has-schedule::after {
+  content: "";
+  position: absolute;
+  bottom: 0.25rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: #06b6d4;
+}
+
+.month-schedule-overview {
+  margin-top: 1rem;
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  padding-top: 1rem;
+}
+.month-schedule-overview h3 {
+  font-size: 1rem;
+  color: #06b6d4;
+}
+
+.month-schedule-list {
+  margin-top: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.month-schedule-item {
+  list-style: none;
+  display: flex;
+  gap: 0.625rem;
+  align-items: flex-start;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.625rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+.month-schedule-item strong {
+  color: #06b6d4;
+  min-width: 2rem;
+  font-size: 0.8125rem;
+}
+.month-schedule-item span {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.month-schedule-empty {
+  list-style: none;
+  font-size: 0.8125rem;
+  opacity: 0.7;
+}
+
+.calendar-schedule {
+  margin-top: 1rem;
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  padding-top: 1rem;
+}
+
+.calendar-schedule-head h3 {
+  font-size: 1rem;
+  color: #06b6d4;
+}
+
+.calendar-schedule-form {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.calendar-schedule-form input {
+  flex: 1;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  font-size: 0.875rem;
+}
+
+.calendar-schedule-list {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.calendar-schedule-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+.calendar-schedule-item span {
+  font-size: 0.875rem;
+}
+
+.calendar-schedule-empty {
+  list-style: none;
+  font-size: 0.8125rem;
+  opacity: 0.7;
+}
+
+.delete-schedule-btn {
+  border: 0.0625rem solid #ff4444;
+  background: rgba(255, 68, 68, 0.1);
+  color: #ff4444;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  cursor: pointer;
 }
 
 .btn-primary,
@@ -856,6 +995,12 @@ body {
   .calendar-days {
     gap: 0.25rem;
     font-size: 0.75rem;
+  }
+  .calendar-day .day-preview {
+    font-size: 0.5625rem;
+  }
+  .calendar-schedule-form {
+    flex-direction: column;
   }
   .btn-primary,
   .btn-secondary,

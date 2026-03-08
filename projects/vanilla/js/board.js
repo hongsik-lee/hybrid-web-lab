@@ -212,7 +212,7 @@ if (document.getElementById('postTitle')) {
 
     // Edit button
     document.getElementById('editBtn').addEventListener('click', () => {
-        alert('수정 기능은 곳 추가될 예정입니다!');
+        alert('수정 기능은 곧 추가될 예정입니다!');
     });
 
     // Delete button
