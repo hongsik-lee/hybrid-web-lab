@@ -726,7 +726,7 @@ body {
 }
 
 // ==================== Responsive ====================
-@media (max-width: 1024px) {
+@include desktop {
     .dashboard {
         grid-template-columns: 1fr;
 
@@ -746,7 +746,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@include tablet {
     body {
         padding: 12px;
     }
@@ -945,7 +945,7 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+@include mobile {
     .header {
         .title {
             font-size: 20px;

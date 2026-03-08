@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass:landing": "sass landing/scss:dist/landing --watch",
     "sass:vanilla": "sass projects/vanilla/scss:dist/projects/vanilla --watch",
-    "sass:all": "sass landing/scss:dist/landing projects/vanilla/scss:dist/projects/vanilla --watch"
+    "sass:react": "sass projects/react/scss:dist/projects/react --watch",
+    "sass:all": "sass landing/scss:dist/landing projects/vanilla/scss:dist/projects/vanilla projects/react/scss:dist/projects/react --watch"
   },
   "keywords": [],
   "author": "",
