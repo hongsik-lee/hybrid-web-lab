@@ -1,19 +1,14 @@
-@use "../../../shared-scss/reset";
+﻿@use "../../../shared-scss/reset";
 @use "../../../shared-scss/variables" as *;
 @use "../../../shared-scss/mixins" as *;
 
 // ==================== Base ====================
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: $font-family-base;
     overflow-x: hidden;
     min-height: 100vh;
+    color: $text-dark;
 }
 
 // ==================== Layout ====================
@@ -25,19 +20,19 @@ body {
 
 // ==================== Sidebar ====================
 .sidebar {
-    width: 80px;
+    width: 5rem;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(1.25rem);
     display: flex;
     flex-direction: column;
-    padding: 20px 0;
-    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.05);
+    padding: 1.25rem 0;
+    box-shadow: 0.125rem 0 1.25rem rgba(0, 0, 0, 0.05);
     transition: width 0.3s ease;
     position: relative;
     z-index: 100;
 
     @include desktop {
-        width: 70px;
+        width: 4.375rem;
     }
 
     @include tablet {
@@ -45,25 +40,25 @@ body {
         left: 0;
         top: 0;
         bottom: 0;
-        width: 70px;
+        width: 4.375rem;
     }
 }
 
 .sidebar-header {
-    padding: 0 20px;
-    margin-bottom: 40px;
+    padding: 0 1.25rem;
+    margin-bottom: 2.5rem;
 
     .logo {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 0.75rem;
 
         .logo-icon {
-            font-size: 28px;
+            font-size: 1.75rem;
         }
 
         .logo-text {
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #1a202c;
             white-space: nowrap;
@@ -75,27 +70,27 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 0 12px;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
 }
 
 .sidebar-footer {
-    padding: 0 12px;
-    margin-top: 20px;
+    padding: 0 0.75rem;
+    margin-top: 1.25rem;
 }
 
 .nav-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 12px;
-    border-radius: 12px;
+    gap: 0.75rem;
+    padding: 0.875rem 0.75rem;
+    border-radius: 0.75rem;
     border: none;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     color: #64748b;
-    font-size: 14px;
+    font-size: 0.875rem;
     text-align: left;
     width: 100%;
 
@@ -107,12 +102,12 @@ body {
     &.active {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 0.25rem 0.75rem rgba(102, 126, 234, 0.4);
     }
 
     .nav-icon {
-        font-size: 24px;
-        min-width: 24px;
+        font-size: 1.5rem;
+        min-width: 1.5rem;
         text-align: center;
     }
 
@@ -125,22 +120,22 @@ body {
 // ==================== Main Content ====================
 .main-content {
     flex: 1;
-    padding: 40px;
+    padding: 2.5rem;
     margin-left: 0;
     overflow-y: auto;
 
     @include tablet {
-        margin-left: 70px;
-        padding: 20px;
+        margin-left: 4.375rem;
+        padding: 1.25rem;
     }
 
     @include mobile {
-        padding: 16px;
+        padding: 1rem;
     }
 }
 
 .dashboard-content {
-    max-width: 1400px;
+    max-width: 87.5rem;
     margin: 0 auto;
 }
 
@@ -149,56 +144,56 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
 
     h1 {
-        font-size: 36px;
+        font-size: 2.25rem;
         font-weight: 700;
         color: #1a202c;
 
         @include tablet {
-            font-size: 28px;
+            font-size: 1.75rem;
         }
 
         @include mobile {
-            font-size: 24px;
+            font-size: 1.5rem;
         }
     }
 
     .page-actions {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 1rem;
     }
 
     .btn-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.75rem;
         border: none;
         background: white;
         cursor: pointer;
-        font-size: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        font-size: 1.25rem;
+        box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
 
         &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transform: translateY(-0.125rem);
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
         }
     }
 
     .user-avatar {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.75rem;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
+        font-size: 1.25rem;
         cursor: pointer;
-        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 0.125rem 0.5rem rgba(102, 126, 234, 0.3);
     }
 }
 
@@ -206,8 +201,8 @@ body {
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 32px;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 
     @include desktop {
         grid-template-columns: repeat(2, 1fr);
@@ -220,33 +215,33 @@ body {
 
 .stat-card {
     background: white;
-    border-radius: 20px;
-    padding: 24px;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    gap: 1.25rem;
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
 
     &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transform: translateY(-0.25rem);
+        box-shadow: 0 0.5rem 1.875rem rgba(0, 0, 0, 0.12);
     }
 
     .stat-icon {
-        width: 60px;
-        height: 60px;
-        border-radius: 16px;
+        width: 3.75rem;
+        height: 3.75rem;
+        border-radius: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 28px;
+        font-size: 1.75rem;
         flex-shrink: 0;
 
         @include mobile {
-            width: 50px;
-            height: 50px;
-            font-size: 24px;
+            width: 3.125rem;
+            height: 3.125rem;
+            font-size: 1.5rem;
         }
     }
 
@@ -255,19 +250,19 @@ body {
     }
 
     .stat-title {
-        font-size: 14px;
+        font-size: 0.875rem;
         color: #64748b;
-        margin-bottom: 8px;
+        margin-bottom: 0.5rem;
         font-weight: 500;
     }
 
     .stat-value {
-        font-size: 32px;
+        font-size: 2rem;
         font-weight: 700;
         color: #1a202c;
 
         @include mobile {
-            font-size: 24px;
+            font-size: 1.5rem;
         }
     }
 }
@@ -275,8 +270,8 @@ body {
 // ==================== Dashboard Grid ====================
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 24px;
+    grid-template-columns: 1fr 25rem;
+    gap: 1.5rem;
 
     @include desktop {
         grid-template-columns: 1fr;
@@ -285,15 +280,15 @@ body {
 
 .chart-section {
     background: white;
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .sidebar-widgets {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 1.5rem;
 }
 
 // ==================== Chart ====================
@@ -302,21 +297,21 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
 
         h3 {
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 600;
             color: #1a202c;
         }
 
         .chart-filter {
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 0.0625rem solid #e2e8f0;
             background: white;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 0.875rem;
             color: #64748b;
 
             &:focus {
@@ -327,11 +322,11 @@ body {
     }
 
     .chart {
-        height: 300px;
+        height: 18.75rem;
         position: relative;
 
         @include mobile {
-            height: 250px;
+            height: 15.625rem;
         }
     }
 
@@ -340,10 +335,10 @@ body {
         align-items: flex-end;
         justify-content: space-around;
         height: 100%;
-        gap: 12px;
+        gap: 0.75rem;
 
         @include mobile {
-            gap: 8px;
+            gap: 0.5rem;
         }
     }
 
@@ -354,21 +349,21 @@ body {
         align-items: center;
         height: 100%;
         justify-content: flex-end;
-        gap: 8px;
+        gap: 0.5rem;
     }
 
     .chart-bar {
         width: 100%;
-        max-width: 60px;
+        max-width: 3.75rem;
         background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-        border-radius: 8px 8px 0 0;
+        border-radius: 0.5rem 0.5rem 0 0;
         position: relative;
         transition: all 0.3s ease;
         cursor: pointer;
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        padding-top: 8px;
+        padding-top: 0.5rem;
 
         &:hover {
             opacity: 0.8;
@@ -376,27 +371,27 @@ body {
         }
 
         @include mobile {
-            max-width: 40px;
+            max-width: 2.5rem;
         }
     }
 
     .chart-value {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 600;
         color: white;
 
         @include mobile {
-            font-size: 10px;
+            font-size: 0.625rem;
         }
     }
 
     .chart-label {
-        font-size: 14px;
+        font-size: 0.875rem;
         color: #64748b;
         font-weight: 500;
 
         @include mobile {
-            font-size: 12px;
+            font-size: 0.75rem;
         }
     }
 }
@@ -404,32 +399,32 @@ body {
 // ==================== Calendar ====================
 .calendar-widget {
     background: white;
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 
     .calendar-title {
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 600;
         color: #1a202c;
     }
 
     .calendar-nav {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.5rem;
         border: none;
         background: rgba(99, 102, 241, 0.1);
         color: #6366f1;
         cursor: pointer;
-        font-size: 18px;
+        font-size: 1.125rem;
         transition: all 0.3s ease;
 
         &:hover {
@@ -441,12 +436,12 @@ body {
 .calendar-weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
 
     .weekday {
         text-align: center;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 600;
         color: #64748b;
     }
@@ -455,7 +450,7 @@ body {
 .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .calendar-day {
@@ -463,8 +458,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    font-size: 14px;
+    border-radius: 0.625rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: #1a202c;
     cursor: pointer;
@@ -483,53 +478,53 @@ body {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         font-weight: 700;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 0.25rem 0.75rem rgba(102, 126, 234, 0.4);
     }
 }
 
 // ==================== Schedule ====================
 .schedule-widget {
     background: white;
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 
     h3 {
-        font-size: 20px;
+        font-size: 1.25rem;
         font-weight: 600;
         color: #1a202c;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 }
 
 .schedule-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 1rem;
 }
 
 .schedule-item {
     display: flex;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 12px;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     transition: all 0.3s ease;
 
     &:hover {
-        transform: translateX(4px);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        transform: translateX(0.25rem);
+        box-shadow: 0 0.25rem 0.75rem rgba(102, 126, 234, 0.2);
     }
 
     .schedule-time {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 600;
         color: #6366f1;
         white-space: nowrap;
-        padding-top: 2px;
+        padding-top: 0.125rem;
 
         @include mobile {
-            font-size: 11px;
+            font-size: 0.6875rem;
         }
     }
 
@@ -537,33 +532,33 @@ body {
         flex: 1;
 
         h4 {
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 600;
             color: #1a202c;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
 
             @include mobile {
-                font-size: 13px;
+                font-size: 0.8125rem;
             }
         }
 
         .schedule-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
         .tag {
-            padding: 4px 12px;
-            border-radius: 6px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
             background: white;
-            font-size: 12px;
+            font-size: 0.75rem;
             color: #64748b;
             font-weight: 500;
 
             @include mobile {
-                font-size: 11px;
-                padding: 3px 8px;
+                font-size: 0.6875rem;
+                padding: 0.1875rem 0.5rem;
             }
         }
     }
@@ -573,7 +568,7 @@ body {
 .analytics-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 1.5rem;
 
     @include desktop {
         grid-template-columns: repeat(2, 1fr);
@@ -586,14 +581,14 @@ body {
 
 .analytics-card {
     background: white;
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
 
     &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transform: translateY(-0.25rem);
+        box-shadow: 0 0.5rem 1.875rem rgba(0, 0, 0, 0.12);
     }
 
     &.full {
@@ -601,37 +596,37 @@ body {
     }
 
     h3 {
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: 600;
         color: #1a202c;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 
     .analytics-stat {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 0.5rem;
 
         .stat-number {
-            font-size: 36px;
+            font-size: 2.25rem;
             font-weight: 700;
             color: #1a202c;
 
             @include mobile {
-                font-size: 28px;
+                font-size: 1.75rem;
             }
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 0.875rem;
             color: #64748b;
         }
 
         .stat-change {
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 6px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
             align-self: flex-start;
 
             &.positive {
@@ -650,31 +645,31 @@ body {
 .metrics-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .metric-item {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0.5rem;
 
     .metric-label {
-        font-size: 14px;
+        font-size: 0.875rem;
         color: #64748b;
         font-weight: 500;
     }
 
     .metric-value {
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: 700;
         color: #1a202c;
-        margin-bottom: 4px;
+        margin-bottom: 0.25rem;
     }
 
     .metric-bar {
-        height: 8px;
+        height: 0.5rem;
         background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-        border-radius: 4px;
+        border-radius: 0.25rem;
         transition: width 0.5s ease;
     }
 }
@@ -683,7 +678,7 @@ body {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(1.25rem);
     }
     to {
         opacity: 1;
@@ -698,24 +693,24 @@ body {
 // ==================== Responsive Mobile ====================
 @include mobile {
     .sidebar {
-        width: 60px;
-        padding: 16px 0;
+        width: 3.75rem;
+        padding: 1rem 0;
 
         .sidebar-header {
-            padding: 0 12px;
-            margin-bottom: 30px;
+            padding: 0 0.75rem;
+            margin-bottom: 1.875rem;
 
             .logo-text {
                 display: none;
             }
 
             .logo-icon {
-                font-size: 24px;
+                font-size: 1.5rem;
             }
         }
 
         .nav-item {
-            padding: 12px 8px;
+            padding: 0.75rem 0.5rem;
             justify-content: center;
 
             .nav-label {
@@ -723,23 +718,23 @@ body {
             }
 
             .nav-icon {
-                font-size: 20px;
+                font-size: 1.25rem;
             }
         }
     }
 
     .main-content {
-        margin-left: 60px;
+        margin-left: 3.75rem;
     }
 
     .dashboard-grid {
-        gap: 16px;
+        gap: 1rem;
     }
 
     .chart-section,
     .calendar-widget,
     .schedule-widget,
     .analytics-card {
-        padding: 20px;
+        padding: 1.25rem;
     }
 }

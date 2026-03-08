@@ -1,8 +1,30 @@
-$bg: #0b0f1a;
-$glass: rgba(255,255,255,0.05);
-$border: rgba(255,255,255,0.12);
+$font-family-base: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
 
-$neon-blue: #06b6d4;
-$neon-purple: #3b82f6;
+$bg: #0b0f1a;
+$bg-soft: #d8cef3;
+$surface: #ffffff;
+$surface-soft: #f8fafc;
+
+$glass: rgba(255, 255, 255, 0.05);
+$border: rgba(255, 255, 255, 0.12);
+
+$primary: #3b82f6;
+$primary-soft: #60a5fa;
+$accent: #06b6d4;
+$accent-soft: #a5f3fc;
+
+$success: #16a34a;
+$danger: #ef4444;
+$warning: #f59e0b;
 
 $text: #e2e8f0;
+$text-dark: #0f172a;
+$text-muted: #64748b;
+
+$neon-blue: $accent;
+$neon-purple: $primary;
+
+$bp-mobile: 30rem;
+$bp-tablet: 48rem;
+$bp-desktop: 64rem;
+$bp-large: 90rem;

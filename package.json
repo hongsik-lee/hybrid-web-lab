@@ -8,7 +8,8 @@
     "sass:landing": "sass landing/scss:dist/landing --watch",
     "sass:vanilla": "sass projects/vanilla/scss:dist/projects/vanilla --watch",
     "sass:react": "sass projects/react/scss:dist/projects/react --watch",
-    "sass:all": "sass landing/scss:dist/landing projects/vanilla/scss:dist/projects/vanilla projects/react/scss:dist/projects/react --watch"
+    "sass:view": "sass projects/view/scss:dist/projects/view --watch",
+    "sass:all": "sass landing/scss:dist/landing projects/vanilla/scss:dist/projects/vanilla projects/react/scss:dist/projects/react projects/view/scss:dist/projects/view --watch"
   },
   "keywords": [],
   "author": "",

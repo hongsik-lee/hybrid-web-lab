@@ -1,36 +1,78 @@
+@use "sass:math";
+@use "variables" as *;
+
+@function rem($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
 @mixin glass {
-backdrop-filter: blur(20px);
-background: rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(rem(20));
+    background: $glass;
+    border: rem(1) solid rgba(255, 255, 255, 0.1);
 }
 
 @mixin neon-border {
-box-shadow:
-0 0 10px rgba(6,182,212,.5),
-0 0 30px rgba(59,130,246,.4);
+    box-shadow:
+        0 0 rem(10) rgba(6, 182, 212, 0.5),
+        0 0 rem(30) rgba(59, 130, 246, 0.4);
+}
+
+@mixin panel($radius: 16, $padding: 24) {
+    background: $surface;
+    border-radius: rem($radius);
+    padding: rem($padding);
+    box-shadow: 0 rem(6) rem(24) rgba(15, 23, 42, 0.08);
+}
+
+@mixin input-base {
+    border: rem(1) solid #cbd5e1;
+    border-radius: rem(10);
+    padding: rem(10) rem(12);
+    font-size: rem(14);
+    font-family: $font-family-base;
+
+    &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 rem(2) rgba(59, 130, 246, 0.16);
+    }
+}
+
+@mixin button-base {
+    border: none;
+    border-radius: rem(10);
+    font-family: $font-family-base;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+@mixin heading-gradient {
+    background: linear-gradient(90deg, $accent, $primary);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 // Responsive Mixins
 @mixin mobile {
-    @media (max-width: 480px) {
+    @media (max-width: $bp-mobile) {
         @content;
     }
 }
 
 @mixin tablet {
-    @media (max-width: 768px) {
+    @media (max-width: $bp-tablet) {
         @content;
     }
 }
 
 @mixin desktop {
-    @media (max-width: 1024px) {
+    @media (max-width: $bp-desktop) {
         @content;
     }
 }
 
 @mixin large-desktop {
-    @media (min-width: 1440px) {
+    @media (min-width: $bp-large) {
         @content;
     }
 }

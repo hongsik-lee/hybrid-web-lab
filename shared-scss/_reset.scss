@@ -1,9 +1,19 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+﻿@use "fonts";
+@use "variables" as *;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-body{
-font-family:system-ui;
+html {
+	font-size: 1rem;
+}
+
+body {
+	font-family: $font-family-base;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
 }
