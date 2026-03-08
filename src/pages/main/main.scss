@@ -1,0 +1,283 @@
+@use "../../styles/abstracts/variables" as vars;
+@use "../../styles/abstracts/mixins" as mixins;
+
+.dashboard-page {
+	min-height: 100%;
+	padding: 2rem;
+
+	.dashboard-shell {
+		max-width: 1180px;
+		min-height: calc(100vh - 7.5rem);
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 320px;
+		gap: 1.25rem;
+		background: #fff;
+		border-radius: 1.5rem;
+		box-shadow: vars.$shadow-soft;
+		overflow: hidden;
+	}
+
+	.center-content {
+		padding: 1.7rem;
+
+		.center-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: 1rem;
+			margin-bottom: 1.25rem;
+
+			h1 {
+				margin: 0;
+				font-size: 1.8rem;
+			}
+
+			p {
+				margin: 0.4rem 0 0;
+				color: vars.$color-muted;
+			}
+
+			.btn-primary {
+				@include mixins.button-primary;
+			}
+		}
+
+		.overview-cards {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 0.9rem;
+			margin-bottom: 1.4rem;
+
+			.overview-card {
+				border-radius: 0.95rem;
+				padding: 1rem;
+				color: #fff;
+
+				&:nth-child(1) {
+					background: linear-gradient(135deg, #6d28d9, #7c3aed);
+				}
+
+				&:nth-child(2) {
+					background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+				}
+
+				&:nth-child(3) {
+					background: linear-gradient(135deg, #f97316, #fb923c);
+				}
+
+				h3 {
+					margin: 0;
+					font-size: 0.93rem;
+					opacity: 0.9;
+				}
+
+				strong {
+					display: block;
+					margin: 0.5rem 0;
+					font-size: 1.25rem;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				p {
+					margin: 0;
+					font-size: 0.82rem;
+					opacity: 0.88;
+				}
+			}
+		}
+
+		.recent-posts {
+			@include mixins.card(#fff);
+			border: 1px solid rgba(0, 0, 0, 0.07);
+			padding: 1rem;
+
+			.section-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 0.8rem;
+
+				h2 {
+					margin: 0;
+					font-size: 1.1rem;
+				}
+
+				.btn-ghost {
+					@include mixins.button-ghost;
+					font-size: 0.85rem;
+					padding: 0.45rem 0.75rem;
+				}
+			}
+
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: grid;
+				gap: 0.6rem;
+			}
+
+			.recent-post-item {
+				border: 1px solid rgba(0, 0, 0, 0.07);
+				border-radius: 0.8rem;
+				padding: 0.75rem;
+			}
+
+			.recent-title {
+				background: transparent;
+				border: none;
+				font-size: 0.98rem;
+				font-weight: 700;
+				text-align: left;
+				padding: 0;
+				cursor: pointer;
+				color: vars.$color-text;
+
+				&:hover {
+					color: vars.$color-primary-dark;
+				}
+			}
+
+			.recent-meta {
+				margin: 0.3rem 0 0;
+				color: vars.$color-muted;
+				font-size: 0.82rem;
+			}
+
+			.empty {
+				color: vars.$color-muted;
+				font-size: 0.9rem;
+			}
+		}
+	}
+
+	.checklist-panel {
+		padding: 1.5rem 1.2rem;
+		border-left: 1px solid rgba(0, 0, 0, 0.07);
+		background: #fffaf4;
+
+		.checklist-head {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 0.9rem;
+
+			h2 {
+				margin: 0;
+				font-size: 1.25rem;
+			}
+
+			.add-btn {
+				@include mixins.button-primary;
+				width: 34px;
+				height: 34px;
+				border-radius: 50%;
+				display: grid;
+				place-items: center;
+				padding: 0;
+				font-size: 1.05rem;
+			}
+		}
+
+		.checklist-form {
+			margin-bottom: 0.9rem;
+
+			input {
+				width: 100%;
+				border: 1px solid rgba(0, 0, 0, 0.16);
+				border-radius: vars.$border-radius;
+				padding: 0.65rem 0.75rem;
+				font-size: 0.92rem;
+
+				&:focus {
+					outline: none;
+					box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+				}
+			}
+		}
+
+		.checklist-items {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: grid;
+			gap: 0.5rem;
+
+			.check-item {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				border-radius: 0.7rem;
+				padding: 0.5rem 0.6rem;
+				background: #fff;
+				border: 1px solid rgba(0, 0, 0, 0.07);
+
+				label {
+					display: flex;
+					gap: 0.55rem;
+					align-items: center;
+					font-size: 0.9rem;
+					color: vars.$color-text;
+				}
+
+				.done {
+					text-decoration: line-through;
+					color: vars.$color-muted;
+				}
+
+				.remove-btn {
+					border: none;
+					background: transparent;
+					color: #9b9b9b;
+					font-size: 1.05rem;
+					cursor: pointer;
+				}
+			}
+
+			.empty {
+				padding: 0.8rem;
+				border-radius: 0.7rem;
+				background: #fff;
+				color: vars.$color-muted;
+				font-size: 0.9rem;
+				border: 1px dashed rgba(0, 0, 0, 0.14);
+			}
+		}
+	}
+}
+
+@media (max-width: 1180px) {
+	.dashboard-page {
+		.dashboard-shell {
+			grid-template-columns: 1fr;
+		}
+
+		.checklist-panel {
+			border-left: none;
+			border-top: 1px solid rgba(0, 0, 0, 0.07);
+		}
+	}
+}
+
+@media (max-width: 860px) {
+	.dashboard-page {
+		padding: 1rem;
+
+		.dashboard-shell {
+			grid-template-columns: 1fr;
+		}
+
+		.center-content {
+			.center-header {
+				flex-direction: column;
+			}
+
+			.overview-cards {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+}

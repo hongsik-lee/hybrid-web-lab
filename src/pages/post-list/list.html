@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles/main.scss" />
+    <title>Post List</title>
+  </head>
+  <body>
+    <header data-component="header"></header>
+    <main class="subpage-layout page-list">
+      <header class="list-header">
+        <h1>게시판</h1>
+        <button id="go-write" class="btn-primary" type="button">작성하기</button>
+      </header>
+
+      <div id="post-list" class="post-list"></div>
+
+      <nav class="pagination" id="pagination" aria-label="게시물 페이지"></nav>
+    </main>
+    <footer data-component="footer"></footer>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/pages/post-list/list.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+// 색상
+$color-primary: #3b82f6;
+$color-primary-dark: #2563eb;
+$color-text: #111;
+$color-muted: rgba(0, 0, 0, 0.65);
+$color-background: #f7f9fc;
+$color-surface: #ffffff;
+$color-page-start: #efe9de;
+$color-page-end: #f5f2ea;
+
+// 폰트
+$font-family-base: "Plus Jakarta Sans", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+// 사이즈
+$spacing-sm: 0.5rem;
+$spacing: 1rem;
+$spacing-lg: 1.5rem;
+
+// 라운드
+$border-radius: 0.75rem;
+
+// 그림자
+$shadow-soft: 0 12px 28px rgba(0, 0, 0, 0.08);
+
+// 브레이크포인트
+$bp-desktop: 1280px;
+$bp-laptop: 1024px;
+$bp-tablet: 860px;
+$bp-mobile: 640px;
+$bp-small: 420px;

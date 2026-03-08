@@ -1,0 +1,63 @@
+@use "../../styles/abstracts/variables" as vars;
+@use "../../styles/abstracts/mixins" as mixins;
+
+.page-list {
+  .list-header,
+  .post-list,
+  .pagination {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    @include mixins.card(#fff);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 1rem 1.2rem;
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .btn-primary {
+      @include mixins.button-primary;
+    }
+  }
+
+  .post-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .pagination {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.75rem;
+    flex-wrap: wrap;
+  }
+
+  .page-btn {
+    @include mixins.button-ghost;
+    min-width: 2.5rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.9rem;
+
+    &.active {
+      @include mixins.button-primary;
+      color: white;
+    }
+
+    &:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+  }
+}

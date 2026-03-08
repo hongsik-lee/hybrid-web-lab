@@ -1,0 +1,67 @@
+@use "../../styles/abstracts/variables" as vars;
+@use "../../styles/abstracts/mixins" as mixins;
+
+.page-write {
+  max-width: 780px;
+  width: 100%;
+
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .write-form {
+    display: grid;
+    gap: 1.25rem;
+    @include mixins.card(#fff);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 1.25rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-weight: 600;
+
+      input,
+      textarea {
+        border: 1px solid rgba(0, 0, 0, 0.18);
+        border-radius: vars.$border-radius;
+        padding: vars.$spacing;
+        font-size: 1rem;
+        width: 100%;
+        background: white;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        @include mixins.button-primary;
+      }
+    }
+
+    .form-message {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: vars.$color-text;
+
+      &.error {
+        color: #dc2626;
+      }
+
+      &.success {
+        color: #16a34a;
+      }
+    }
+  }
+}
+

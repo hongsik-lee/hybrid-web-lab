@@ -1,0 +1,122 @@
+@use "../../styles/abstracts/variables" as vars;
+@use "../../styles/abstracts/mixins" as mixins;
+
+header[data-component="header"] {
+  background: #fafbff;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+
+  .side-nav {
+    position: sticky;
+    top: 0;
+    padding: 1.5rem 1.2rem;
+    min-height: 100vh;
+  }
+
+  .brand {
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.4rem;
+    color: #20223a;
+  }
+
+  .profile-box {
+    @include mixins.card(#fff);
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto 0.6rem;
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      background: #e8ecff;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0.4rem 0 0;
+      color: vars.$color-muted;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+  }
+
+  .menu-nav {
+    display: grid;
+    gap: 0.35rem;
+
+    a {
+      text-decoration: none;
+      color: #2d2f45;
+      padding: 0.7rem 0.8rem;
+      border-radius: 0.7rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+
+      &:hover {
+        background: rgba(59, 130, 246, 0.1);
+      }
+
+      &.active {
+        background: rgba(59, 130, 246, 0.16);
+        color: vars.$color-primary-dark;
+      }
+    }
+  }
+
+  @include mixins.down(laptop) {
+    .side-nav {
+      padding: 1.1rem 0.95rem;
+    }
+
+    .profile-box {
+      padding: 0.85rem;
+    }
+  }
+
+  @include mixins.down(tablet) {
+    .side-nav {
+      position: static;
+      min-height: auto;
+      padding: 0.8rem 0.9rem;
+    }
+
+    .brand {
+      margin-bottom: 0.7rem;
+    }
+
+    .profile-box {
+      display: none;
+    }
+
+    .menu-nav {
+      display: flex;
+      gap: 0.45rem;
+      overflow-x: auto;
+      padding-bottom: 0.2rem;
+
+      a {
+        white-space: nowrap;
+        font-size: 0.87rem;
+        padding: 0.55rem 0.7rem;
+      }
+    }
+  }
+
+  @include mixins.down(mobile) {
+    .menu-nav a {
+      font-size: 0.82rem;
+      padding: 0.5rem 0.62rem;
+      border-radius: 0.6rem;
+    }
+  }
+}

@@ -1,0 +1,246 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mixins;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: linear-gradient(180deg, vars.$color-page-start 0%, vars.$color-page-end 100%);
+	min-height: 100vh;
+}
+
+body.with-sidebar-nav {
+	display: grid;
+	grid-template-columns: 250px minmax(0, 1fr);
+	grid-template-rows: minmax(0, 1fr) auto;
+}
+
+@include mixins.down(laptop) {
+	body.with-sidebar-nav {
+		grid-template-columns: 230px minmax(0, 1fr);
+	}
+}
+
+body.with-sidebar-nav > header[data-component="header"] {
+	grid-column: 1;
+	grid-row: 1 / -1;
+}
+
+body.with-sidebar-nav > main {
+	grid-column: 2;
+	grid-row: 1;
+	min-width: 0;
+}
+
+body.with-sidebar-nav > footer[data-component="footer"] {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+body.with-sidebar-nav .footer {
+	margin-top: 0;
+}
+
+.subpage-layout {
+	max-width: 1080px;
+	margin: 2rem auto;
+	padding: 0 1.5rem;
+}
+
+@include mixins.down(laptop) {
+	.subpage-layout {
+		margin: 1.5rem auto;
+		padding: 0 1.1rem;
+	}
+}
+
+@include mixins.down(tablet) {
+	body.with-sidebar-nav {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto minmax(0, 1fr) auto;
+	}
+
+	body.with-sidebar-nav > header[data-component="header"],
+	body.with-sidebar-nav > main,
+	body.with-sidebar-nav > footer[data-component="footer"] {
+		grid-column: 1;
+	}
+
+	body.with-sidebar-nav > header[data-component="header"] {
+		grid-row: 1;
+	}
+
+	body.with-sidebar-nav > main {
+		grid-row: 2;
+	}
+
+	body.with-sidebar-nav > footer[data-component="footer"] {
+		grid-row: 3;
+	}
+
+	.subpage-layout {
+		margin: 1rem auto;
+		padding: 0 0.9rem;
+	}
+
+	.subpage-card {
+		padding: 1rem;
+		border-radius: 0.85rem;
+	}
+
+	.subpage-head {
+		h1 {
+			font-size: 1.35rem;
+		}
+
+		p {
+			font-size: 0.86rem;
+		}
+	}
+
+	.page-list .list-header,
+	.page-detail .detail-header,
+	.page-write .write-form {
+		padding: 0.9rem;
+	}
+
+	.page-list .list-header {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.page-list .btn-primary,
+	.page-write .actions button,
+	.page-detail .comment-actions button,
+	.page-login .btn-primary {
+		width: 100%;
+		justify-self: stretch;
+	}
+
+	.page-detail .detail-header {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.page-detail .detail-meta {
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	.page-login {
+		max-width: 100%;
+	}
+
+	.page-profile .profile-body,
+	.page-mypage .mypage-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.dashboard-page {
+		padding: 0.9rem;
+	}
+
+	.dashboard-page .dashboard-shell {
+		border-radius: 1rem;
+		min-height: auto;
+		gap: 0.8rem;
+	}
+
+	.dashboard-page .center-content {
+		padding: 1rem;
+	}
+
+	.dashboard-page .checklist-panel {
+		padding: 1rem;
+	}
+}
+
+@include mixins.down(mobile) {
+	.subpage-layout {
+		padding: 0 0.75rem;
+	}
+
+	.subpage-card {
+		padding: 0.85rem;
+	}
+
+	.dashboard-page {
+		padding: 0.75rem;
+	}
+
+	.dashboard-page .overview-cards {
+		gap: 0.6rem;
+	}
+
+	.dashboard-page .overview-cards .overview-card {
+		padding: 0.85rem;
+	}
+
+	.dashboard-page .center-content .center-header h1 {
+		font-size: 1.45rem;
+	}
+
+	.footer {
+		padding: 1rem;
+	}
+}
+
+@include mixins.down(small) {
+	.subpage-layout {
+		padding: 0 0.6rem;
+	}
+
+	.page-list .page-btn {
+		min-width: 2.1rem;
+		padding: 0.3rem 0.5rem;
+		font-size: 0.82rem;
+	}
+
+	.dashboard-page .checklist-panel .checklist-head h2 {
+		font-size: 1.1rem;
+	}
+
+	.dashboard-page .checklist-panel .checklist-form input {
+		font-size: 0.85rem;
+	}
+}
+
+.subpage-card {
+	@include mixins.card(vars.$color-surface);
+	border: 1px solid rgba(0, 0, 0, 0.07);
+	border-radius: 1rem;
+	padding: 1.25rem;
+}
+
+.subpage-head {
+	margin-bottom: 1rem;
+
+	h1 {
+		margin: 0;
+		font-size: 1.65rem;
+		font-weight: 800;
+	}
+
+	p {
+		margin: 0.45rem 0 0;
+		color: vars.$color-muted;
+		font-size: 0.92rem;
+	}
+}
+
+.floating-home-btn {
+	position: fixed;
+	right: 1rem;
+	bottom: 1rem;
+	z-index: 90;
+	padding: 0.55rem 0.95rem;
+	border-radius: 999px;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 0.86rem;
+	color: #fff;
+	background: linear-gradient(135deg, vars.$color-primary, vars.$color-accent);
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}

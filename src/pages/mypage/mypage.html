@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles/main.scss" />
+    <title>My Page</title>
+  </head>
+  <body>
+    <header data-component="header"></header>
+    <main class="subpage-layout page-mypage">
+      <section class="subpage-card">
+        <div class="subpage-head">
+          <h1>마이페이지</h1>
+          <p>내 활동 요약과 최근 작성 내역을 확인하세요.</p>
+        </div>
+
+        <div class="mypage-grid">
+          <article class="mypage-box">
+            <h2>내 소개</h2>
+            <p>콘텐츠를 정리하고 공유하는 것을 좋아하는 작성자입니다.</p>
+          </article>
+
+          <article class="mypage-box">
+            <h2>이번 주 목표</h2>
+            <ul>
+              <li>게시글 3개 작성</li>
+              <li>댓글 10개 남기기</li>
+              <li>작성 템플릿 개선</li>
+            </ul>
+          </article>
+
+          <article class="mypage-box wide">
+            <h2>활동 메모</h2>
+            <p>최근 작업한 내용을 정리하고 다음 액션을 체크리스트로 관리해보세요.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer data-component="footer"></footer>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/pages/mypage/mypage.js"></script>
+  </body>
+</html>

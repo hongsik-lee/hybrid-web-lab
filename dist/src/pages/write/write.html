@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Write Post</title>
+    <script type="module" crossorigin src="/assets/vanillaWritePage-DSz9ZxFK.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/assets/main-c2C4QTc3.js">
+    <link rel="modulepreload" crossorigin href="/assets/api-faMTyQMo.js">
+    <link rel="modulepreload" crossorigin href="/assets/router-BZDEbV94.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-yJNuZhkL.css">
+    <link rel="stylesheet" crossorigin href="/assets/vanillaWritePage-BPHElohd.css">
+  </head>
+  <body>
+    <header data-component="header"></header>
+    <main class="subpage-layout page-write">
+      <h1>글 작성</h1>
+
+      <form id="write-form" class="write-form">
+        <label>
+          제목
+          <input
+            type="text"
+            name="title"
+            id="title"
+            required
+            placeholder="제목을 입력하세요"
+          />
+        </label>
+
+        <label>
+          내용
+          <textarea
+            name="content"
+            id="content"
+            required
+            placeholder="내용을 입력하세요"
+            rows="10"
+          ></textarea>
+        </label>
+
+        <div class="actions">
+          <button type="submit">게시하기</button>
+        </div>
+
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </main>
+    <footer data-component="footer"></footer>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+@use "../../styles/abstracts/variables" as vars;
+@use "../../styles/abstracts/mixins" as mixins;
+
+.hub-page {
+  max-width: 1080px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem 2rem;
+}
+
+.share-hero {
+  margin-bottom: 1.2rem;
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0.6rem 0 0;
+    color: vars.$color-muted;
+    font-size: 1rem;
+  }
+}
+
+.project-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.share-section {
+  @include mixins.card(vars.$color-surface);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 1rem;
+  padding: 1.1rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+}
+
+.project-stack {
+  margin: 0.55rem 0 0;
+  color: vars.$color-muted;
+  font-size: 0.93rem;
+}
+
+.share-links {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: vars.$color-primary-dark;
+    background: rgba(37, 99, 235, 0.08);
+    border-radius: vars.$border-radius;
+    padding: 0.62rem 0.78rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+      background: rgba(37, 99, 235, 0.15);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+@include mixins.down(tablet) {
+  .hub-page {
+    margin: 1.4rem auto;
+    padding: 0 1rem 1.25rem;
+  }
+
+  .project-sections {
+    grid-template-columns: 1fr;
+  }
+}

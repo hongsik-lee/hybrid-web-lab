@@ -1,0 +1,63 @@
+@use "../../styles/abstracts/variables" as vars;
+
+.page-profile {
+  max-width: 760px;
+
+  .profile-card {
+    padding: 1.3rem;
+  }
+
+  .profile-body {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      background: #e8ecff;
+      flex-shrink: 0;
+    }
+
+    .profile-info {
+      h2 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+
+      p {
+        margin: 0.35rem 0 0.75rem;
+        color: vars.$color-muted;
+      }
+
+      .badges {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        span {
+          background: #f3f6ff;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          border-radius: 999px;
+          padding: 0.3rem 0.65rem;
+          font-size: 0.84rem;
+          color: vars.$color-text;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .page-profile {
+    .profile-body {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

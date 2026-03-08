@@ -1,0 +1,142 @@
+@use "../../styles/abstracts/variables" as vars;
+@use "../../styles/abstracts/mixins" as mixins;
+
+.page-detail {
+  max-width: 900px;
+  width: 100%;
+
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    @include mixins.card(#fff);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 0.85rem 1rem;
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .btn-ghost {
+      @include mixins.button-ghost;
+    }
+  }
+
+  .post-detail {
+    @include mixins.card(#fff);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 1.4rem;
+
+    .detail-title {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.55rem;
+      font-weight: 700;
+    }
+
+    .detail-meta {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 1.25rem;
+      color: rgba(0, 0, 0, 0.55);
+
+      span {
+        font-size: 0.9rem;
+      }
+    }
+
+    .detail-content {
+      line-height: 1.7;
+      white-space: pre-wrap;
+      color: rgba(0, 0, 0, 0.9);
+    }
+  }
+
+  .detail-message {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+
+    &.error {
+      color: #dc2626;
+    }
+
+    &.success {
+      color: #16a34a;
+    }
+  }
+
+  .comments {
+    margin-top: 2rem;
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .comment-list {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .comment {
+      @include mixins.card(vars.$color-background);
+      padding: 1rem;
+
+      .comment-meta {
+        display: flex;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        color: vars.$color-muted;
+        margin-bottom: 0.75rem;
+      }
+
+      .comment-author {
+        font-weight: 700;
+      }
+
+      .comment-body {
+        line-height: 1.6;
+        color: vars.$color-text;
+      }
+    }
+
+    .no-comments {
+      color: vars.$color-muted;
+      font-size: 0.95rem;
+    }
+
+    .comment-form {
+      display: grid;
+      gap: 1rem;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-weight: 600;
+
+        textarea {
+          border: 1px solid rgba(0, 0, 0, 0.18);
+          border-radius: vars.$border-radius;
+          padding: vars.$spacing;
+          resize: vertical;
+          min-height: 120px;
+        }
+      }
+
+      .comment-actions {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          @include mixins.button-primary;
+        }
+      }
+    }
+  }
+}

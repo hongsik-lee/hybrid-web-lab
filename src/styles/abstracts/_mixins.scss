@@ -1,0 +1,73 @@
+@use "./variables" as vars;
+
+$breakpoints: (
+  desktop: vars.$bp-desktop,
+  laptop: vars.$bp-laptop,
+  tablet: vars.$bp-tablet,
+  mobile: vars.$bp-mobile,
+  small: vars.$bp-small,
+);
+
+@mixin down($device) {
+  $width: map-get($breakpoints, $device);
+
+  @if $width == null {
+    @error "Unknown breakpoint: #{$device}";
+  }
+
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin up($device) {
+  $width: map-get($breakpoints, $device);
+
+  @if $width == null {
+    @error "Unknown breakpoint: #{$device}";
+  }
+
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin button-base {
+  cursor: pointer;
+  border: none;
+  border-radius: vars.$border-radius;
+  padding: vars.$spacing-sm vars.$spacing;
+  font-weight: 700;
+  transition: filter 0.2s ease, transform 0.15s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: vars.$color-primary;
+  color: white;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+@mixin button-ghost {
+  @include button-base;
+  background: transparent;
+  color: vars.$color-text;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
+
+@mixin card($bg: white) {
+  background: $bg;
+  border-radius: vars.$border-radius;
+  box-shadow: vars.$shadow-soft;
+}

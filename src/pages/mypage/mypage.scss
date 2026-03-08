@@ -1,0 +1,47 @@
+@use "../../styles/abstracts/variables" as vars;
+@use "../../styles/abstracts/mixins" as mixins;
+
+.page-mypage {
+	.mypage-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.9rem;
+	}
+
+	.mypage-box {
+		@include mixins.card(#fafbff);
+		border: 1px solid rgba(0, 0, 0, 0.06);
+		padding: 1rem;
+
+		h2 {
+			margin: 0 0 0.6rem;
+			font-size: 1.05rem;
+		}
+
+		p {
+			margin: 0;
+			color: vars.$color-muted;
+			line-height: 1.6;
+		}
+
+		ul {
+			margin: 0;
+			padding-left: 1rem;
+			color: vars.$color-muted;
+			display: grid;
+			gap: 0.35rem;
+		}
+
+		&.wide {
+			grid-column: 1 / -1;
+		}
+	}
+}
+
+@media (max-width: 760px) {
+	.page-mypage {
+		.mypage-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+}
