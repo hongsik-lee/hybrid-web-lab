@@ -56,5 +56,10 @@ npm run build
 npm run preview
 ```
 
+## GitHub Pages 배포
+- 워크플로 파일: `.github/workflows/deploy-pages.yml`
+- 배포 방식: `main` 브랜치 push 시 `vite build` 후 `dist`를 GitHub Pages에 게시
+- 저장소 설정에서 `Settings > Pages > Build and deployment > Source`를 `GitHub Actions`로 선택해야 합니다.
+
 ## 메모
 - 바닐라 페이지는 `src/main.js`에서 공통 컴포넌트 로딩과 함께 `메인` 플로팅 버튼(`landing/index.html` 이동)을 자동 주입합니다.
