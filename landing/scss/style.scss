@@ -3,7 +3,7 @@
 @use "../../shared-scss/mixins" as *;
 
 body {
-    background: radial-gradient(circle at top, $neon-purple10, #020617);
+    background: radial-gradient(circle at top,$neon-purple,#020617);
     color: $text;
     min-height: 100vh;
     padding: 80px 40px;
