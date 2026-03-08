@@ -1,0 +1,11 @@
+@mixin glass {
+backdrop-filter: blur(20px);
+background: rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+@mixin neon-border {
+box-shadow:
+0 0 10px rgba(0,229,255,.5),
+0 0 30px rgba(124,58,237,.4);
+}

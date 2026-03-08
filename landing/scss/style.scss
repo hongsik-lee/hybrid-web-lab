@@ -1,0 +1,184 @@
+@use "../../shared-scss/reset";
+@use "../../shared-scss/variables" as *;
+@use "../../shared-scss/mixins" as *;
+
+body {
+    background: radial-gradient(circle at top, $neon-purple10, #020617);
+    color: $text;
+    min-height: 100vh;
+    padding: 80px 40px;
+}
+
+/* hero */
+
+.hero {
+    text-align: center;
+    margin-bottom: 80px;
+
+    .title {
+        font-size: 52px;
+        font-weight: 700;
+        letter-spacing: -1px;
+
+        background: linear-gradient(90deg, $neon-blue, $neon-purple);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .subtitle {
+        margin-top: 10px;
+        opacity: .6;
+    }
+}
+
+/* grid */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+/* card */
+
+.card {
+
+    position: relative;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    @include glass;
+
+    transition: all .35s ease;
+
+    text-decoration: none;
+
+    color: white;
+
+}
+
+.card:hover {
+
+    transform: translateY(-12px) scale(1.02);
+
+    @include neon-border;
+
+}
+
+/* glow background */
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(circle at var(--x) var(--y),
+
+            rgba(0, 229, 255, .35),
+
+            transparent 40%);
+
+    opacity: 0;
+
+    transition: opacity .3s;
+
+}
+
+.card:hover::before {
+
+    opacity: 1;
+
+}
+
+/* preview */
+
+.preview {
+
+    height: 220px;
+
+    overflow: hidden;
+
+    iframe {
+
+        width: 100%;
+
+        height: 100%;
+
+        border: none;
+
+        transform: scale(.95);
+
+        filter: blur(2px) brightness(.8);
+
+        transition: .4s;
+
+    }
+
+}
+
+.card:hover iframe {
+
+    transform: scale(1);
+
+    filter: none;
+
+}
+
+/* info */
+
+.info {
+
+    padding: 22px;
+
+    h3 {
+
+        font-size: 20px;
+
+        margin-bottom: 6px;
+
+    }
+
+    p {
+
+        font-size: 14px;
+
+        opacity: .6;
+
+    }
+
+}
+
+/* responsive */
+
+@media(max-width:1000px) {
+
+    .projects {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .projects {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .title {
+
+        font-size: 36px;
+
+    }
+
+}
