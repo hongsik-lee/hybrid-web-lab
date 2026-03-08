@@ -4,7 +4,7 @@ const react = require('@vitejs/plugin-react');
 
 module.exports = defineConfig({
     plugins: [react()],
-    base: '/hybrid-web-lab/',
+    base: '/hybrid-web-lab/dist/',
     build: {
         rollupOptions: {
             input: {
