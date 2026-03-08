@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass:landing": "sass landing/scss:dist/landing --watch"
+    "sass:landing": "sass landing/scss:dist/landing --watch",
+    "sass:vanilla": "sass projects/vanilla/scss:dist/projects/vanilla --watch",
+    "sass:all": "sass landing/scss:dist/landing projects/vanilla/scss:dist/projects/vanilla --watch"
   },
   "keywords": [],
   "author": "",

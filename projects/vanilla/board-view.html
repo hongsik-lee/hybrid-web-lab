@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 보기 - Vanilla JS</title>
+    <link rel="stylesheet" href="../../dist/projects/vanilla/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">게시글 상세</h1>
+            <nav class="nav">
+                <a href="index.html">홈</a>
+                <a href="board-list.html">게시판</a>
+            </nav>
+        </header>
+
+        <div class="view-container">
+            <article class="post-detail">
+                <div class="post-header">
+                    <h2 class="post-title" id="postTitle">Vanilla JS 프로젝트에 오신 것을 환영합니다</h2>
+                    <div class="post-info">
+                        <div class="info-left">
+                            <span class="author">작성자: <strong id="postAuthor">관리자</strong></span>
+                            <span class="date">날짜: <strong id="postDate">2026-03-08</strong></span>
+                        </div>
+                        <div class="info-right">
+                            <span class="views">조회수: <strong id="postViews">125</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-content" id="postContent">
+                    <p>Vanilla JavaScript 프로젝트에 오신 것을 환영합니다! 순수 JavaScript, HTML, SCSS로 구축된 완성된 게시판 시스템의 데모입니다.</p>
+                    <p>대시보드에는 태스크 관리를 위한 체크리스트, 최근 게시글 미리보기, 작업을 효과적으로 정리하는 데 도움이 되는 대화형 캘린더 등 다양한 기능이 포함되어 있습니다.</p>
+                    <p>모든 기능을 자유롭게 탐색하고 모든 것이 어떻게 함께 작동하는지 확인해보세요!</p>
+                </div>
+
+                <div class="post-actions">
+                    <button class="btn-edit" id="editBtn">수정</button>
+                    <button class="btn-delete" id="deleteBtn">삭제</button>
+                    <button class="btn-list" id="listBtn">목록</button>
+                </div>
+            </article>
+
+            <section class="comments-section">
+                <h3>댓글 (<span id="commentCount">0</span>)</h3>
+                
+                <div class="comment-form">
+                    <textarea id="commentInput" placeholder="댓글을 작성하세요..." rows="3"></textarea>
+                    <button class="btn-comment" id="submitComment">댓글 등록</button>
+                </div>
+
+                <div class="comments-list" id="commentsList">
+                    <!-- Comments will be dynamically added here -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="./js/board.js"></script>
+</body>
+</html>

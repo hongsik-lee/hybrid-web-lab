@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 - Vanilla JS</title>
+    <link rel="stylesheet" href="../../dist/projects/vanilla/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">게시판</h1>
+            <nav class="nav">
+                <a href="index.html">홈</a>
+                <a href="board-list.html" class="active">게시판</a>
+            </nav>
+        </header>
+
+        <div class="board-container">
+            <div class="board-header">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="게시글 검색...">
+                    <button id="searchBtn">🔍</button>
+                </div>
+                <button class="btn-write" id="writeBtn">글쓰기</button>
+            </div>
+
+            <div class="board-table">
+                <div class="table-header">
+                    <div class="col-id">번호</div>
+                    <div class="col-title">제목</div>
+                    <div class="col-author">작성자</div>
+                    <div class="col-date">날짜</div>
+                    <div class="col-views">조회수</div>
+                </div>
+                <div class="table-body" id="boardList">
+                    <div class="table-row" data-id="1">
+                        <div class="col-id">1</div>
+                        <div class="col-title">Vanilla JS 프로젝트에 오신 것을 환영합니다</div>
+                        <div class="col-author">관리자</div>
+                        <div class="col-date">2026-03-08</div>
+                        <div class="col-views">125</div>
+                    </div>
+                    <div class="table-row" data-id="2">
+                        <div class="col-id">2</div>
+                        <div class="col-title">프로젝트 설정 가이드</div>
+                        <div class="col-author">사용자</div>
+                        <div class="col-date">2026-03-07</div>
+                        <div class="col-views">89</div>
+                    </div>
+                    <div class="table-row" data-id="3">
+                        <div class="col-id">3</div>
+                        <div class="col-title">대시보드 기능 개요</div>
+                        <div class="col-author">관리자</div>
+                        <div class="col-date">2026-03-06</div>
+                        <div class="col-views">67</div>
+                    </div>
+                    <div class="table-row" data-id="4">
+                        <div class="col-id">4</div>
+                        <div class="col-title">JavaScript 베스트 프랙티스</div>
+                        <div class="col-author">개발자</div>
+                        <div class="col-date">2026-03-05</div>
+                        <div class="col-views">54</div>
+                    </div>
+                    <div class="table-row" data-id="5">
+                        <div class="col-id">5</div>
+                        <div class="col-title">이벤트 루프 이해하기</div>
+                        <div class="col-author">사용자</div>
+                        <div class="col-date">2026-03-04</div>
+                        <div class="col-views">42</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn" disabled>‹</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">›</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/board.js"></script>
+</body>
+</html>
