@@ -1,9 +1,0 @@
-const s=`<div class="post-card">
-
-<h3 class="title"></h3>
-
-<p class="author"></p>
-
-<p class="date"></p>
-
-</div>`;export{s as default};
