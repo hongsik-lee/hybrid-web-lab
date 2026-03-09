@@ -65,26 +65,26 @@ body.with-sidebar-nav .footer {
 
 @include mixins.down(laptop) {
 	body.with-sidebar-nav {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto minmax(0, 1fr) auto;
+		display: block;
 	}
 
 	body.with-sidebar-nav > header[data-component="header"],
 	body.with-sidebar-nav > main,
 	body.with-sidebar-nav > footer[data-component="footer"] {
-		grid-column: 1;
+		grid-column: auto;
 	}
 
 	body.with-sidebar-nav > header[data-component="header"] {
-		grid-row: 1;
+		grid-row: auto;
 	}
 
 	body.with-sidebar-nav > main {
-		grid-row: 2;
+		grid-row: auto;
+		width: 100%;
 	}
 
 	body.with-sidebar-nav > footer[data-component="footer"] {
-		grid-row: 3;
+		grid-row: auto;
 	}
 
 	.subpage-layout {

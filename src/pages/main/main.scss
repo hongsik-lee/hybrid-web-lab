@@ -270,6 +270,8 @@
 	.dashboard-page {
 		.dashboard-shell {
 			grid-template-columns: 1fr;
+			min-height: auto;
+			overflow: visible;
 		}
 
 		.center-content {
@@ -288,6 +290,7 @@
 
 @media (max-width: 860px) {
 	.dashboard-page {
+		width: 100%;
 		padding: 1rem;
 
 		.dashboard-shell {
