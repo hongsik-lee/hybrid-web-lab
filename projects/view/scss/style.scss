@@ -4,6 +4,7 @@
 
 * {
     box-sizing: border-box;
+    word-break: keep-all;
 }
 
 body {
@@ -312,6 +313,11 @@ a {
 
 .plan-card-sub {
     background: #a8c8f0;
+
+    #subPlanTitle {
+        font-size: 1.5rem;
+        line-height: 1.15;
+    }
 }
 
 .chip {
@@ -750,6 +756,10 @@ a {
     .plan-card h3 {
         font-size: 1.6rem;
     }
+
+    .plan-card-sub #subPlanTitle {
+        font-size: 1.35rem;
+    }
 }
 
 @include tablet {
@@ -767,6 +777,10 @@ a {
 
     .plan-card h3 {
         font-size: 1.55rem;
+    }
+
+    .plan-card-sub #subPlanTitle {
+        font-size: 1.28rem;
     }
 }
 
@@ -812,6 +826,10 @@ a {
 
     .plan-grid {
         grid-template-columns: 1fr;
+    }
+
+    .plan-card-sub #subPlanTitle {
+        font-size: 1.2rem;
     }
 
     .plan-card-main {

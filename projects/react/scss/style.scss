@@ -20,10 +20,67 @@ body {
     min-height: 100vh;
     font-family: $font-family-base;
     color: var(--navy-900);
-    background:
-        radial-gradient(circle at 16% 12%, #ffe7cf 0, #ffe7cf 12rem, transparent 12rem),
-        radial-gradient(circle at 88% 8%, #d7fff0 0, #d7fff0 10rem, transparent 10rem),
-        linear-gradient(160deg, #fffdf6 0%, #f5fbff 38%, #f6fffa 100%);
+    background: linear-gradient(160deg, #fffdf6 0%, #f5fbff 38%, #f6fffa 100%);
+    position: relative;
+    isolation: isolate;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: -28vmax;
+    z-index: -1;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    transform: translate3d(0, 0, 0);
+    will-change: transform, background-position;
+}
+
+body::before {
+    background-image:
+        radial-gradient(circle, rgba(255, 231, 207, 0.86) 0 28%, rgba(255, 231, 207, 0.32) 44%, rgba(255, 231, 207, 0) 68%),
+        radial-gradient(circle, rgba(215, 255, 240, 0.84) 0 30%, rgba(215, 255, 240, 0.3) 46%, rgba(215, 255, 240, 0) 70%),
+        radial-gradient(circle, rgba(255, 217, 176, 0.74) 0 24%, rgba(255, 217, 176, 0.24) 40%, rgba(255, 217, 176, 0) 63%);
+    background-size:
+        clamp(20rem, 42vw, 38rem) clamp(20rem, 42vw, 38rem),
+        clamp(14rem, 30vw, 27rem) clamp(14rem, 30vw, 27rem),
+        clamp(10rem, 23vw, 19rem) clamp(10rem, 23vw, 19rem);
+    background-position:
+        12% 18%,
+        86% 26%,
+        28% 82%;
+    filter: blur(36px);
+    opacity: 0.95;
+    animation: react-orb-drift-a 17.2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+}
+
+body::after {
+    background-image:
+        radial-gradient(circle, rgba(194, 246, 230, 0.76) 0 26%, rgba(194, 246, 230, 0.24) 42%, rgba(194, 246, 230, 0) 66%),
+        radial-gradient(circle, rgba(255, 206, 160, 0.68) 0 20%, rgba(255, 206, 160, 0.2) 35%, rgba(255, 206, 160, 0) 58%),
+        radial-gradient(circle, rgba(178, 235, 217, 0.62) 0 22%, rgba(178, 235, 217, 0.16) 36%, rgba(178, 235, 217, 0) 58%),
+        radial-gradient(circle, rgba(255, 236, 214, 0.62) 0 18%, rgba(255, 236, 214, 0.14) 32%, rgba(255, 236, 214, 0) 54%);
+    background-size:
+        clamp(12rem, 26vw, 24rem) clamp(12rem, 26vw, 24rem),
+        clamp(8rem, 18vw, 15rem) clamp(8rem, 18vw, 15rem),
+        clamp(9rem, 20vw, 17rem) clamp(9rem, 20vw, 17rem),
+        clamp(6rem, 13vw, 11rem) clamp(6rem, 13vw, 11rem);
+    background-position:
+        78% 72%,
+        18% 56%,
+        52% 14%,
+        92% 84%;
+    filter: blur(52px);
+    opacity: 0.86;
+    animation: react-orb-drift-b 22.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none;
+    }
 }
 
 .floating-home-btn {
@@ -660,5 +717,79 @@ body {
     to {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+@keyframes react-orb-drift-a {
+    0% {
+        background-position: 12% 18%, 86% 26%, 28% 82%;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    11% {
+        background-position: 13% 12%, 85% 31%, 27% 78%;
+        transform: translate3d(0.4rem, -0.8rem, 0) scale(1.02);
+    }
+
+    27% {
+        background-position: 10% 24%, 88% 18%, 31% 86%;
+        transform: translate3d(-0.5rem, 1.2rem, 0) scale(0.99);
+    }
+
+    46% {
+        background-position: 14% 15%, 83% 35%, 25% 79%;
+        transform: translate3d(0.6rem, -1rem, 0) scale(1.03);
+    }
+
+    63% {
+        background-position: 11% 27%, 89% 20%, 29% 88%;
+        transform: translate3d(-0.7rem, 1.4rem, 0) scale(0.98);
+    }
+
+    84% {
+        background-position: 13% 14%, 84% 33%, 26% 80%;
+        transform: translate3d(0.3rem, -0.6rem, 0) scale(1.01);
+    }
+
+    100% {
+        background-position: 12% 18%, 86% 26%, 28% 82%;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes react-orb-drift-b {
+    0% {
+        background-position: 78% 72%, 18% 56%, 52% 14%, 92% 84%;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    9% {
+        background-position: 80% 68%, 20% 60%, 49% 18%, 89% 82%;
+        transform: translate3d(-0.4rem, -0.5rem, 0) scale(1.02);
+    }
+
+    24% {
+        background-position: 75% 78%, 16% 52%, 55% 11%, 94% 88%;
+        transform: translate3d(0.5rem, 0.9rem, 0) scale(0.98);
+    }
+
+    41% {
+        background-position: 82% 66%, 22% 61%, 48% 20%, 90% 79%;
+        transform: translate3d(-0.6rem, -1rem, 0) scale(1.03);
+    }
+
+    58% {
+        background-position: 77% 80%, 15% 50%, 56% 13%, 95% 90%;
+        transform: translate3d(0.7rem, 1.2rem, 0) scale(0.97);
+    }
+
+    76% {
+        background-position: 81% 69%, 21% 59%, 50% 17%, 91% 81%;
+        transform: translate3d(-0.5rem, -0.8rem, 0) scale(1.01);
+    }
+
+    100% {
+        background-position: 78% 72%, 18% 56%, 52% 14%, 92% 84%;
+        transform: translate3d(0, 0, 0) scale(1);
     }
 }

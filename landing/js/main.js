@@ -1,4 +1,35 @@
 const cards = document.querySelectorAll(".card")
+const body = document.body
+
+let frameId = null
+let targetX = window.innerWidth * 0.5
+let targetY = window.innerHeight * 0.3
+
+function updateBackgroundGlow() {
+	const mouseXPercent = (targetX / window.innerWidth) * 100
+	const mouseYPercent = (targetY / window.innerHeight) * 100
+
+	body.style.setProperty("--mouse-x", `${mouseXPercent}%`)
+	body.style.setProperty("--mouse-y", `${mouseYPercent}%`)
+	frameId = null
+}
+
+window.addEventListener("mousemove", (event) => {
+	targetX = event.clientX
+	targetY = event.clientY
+
+	if (!frameId) {
+		frameId = requestAnimationFrame(updateBackgroundGlow)
+	}
+})
+
+window.addEventListener("mouseleave", () => {
+	targetX = window.innerWidth * 0.5
+	targetY = window.innerHeight * 0.3
+	if (!frameId) {
+		frameId = requestAnimationFrame(updateBackgroundGlow)
+	}
+})
 
 cards.forEach(card=>{
 
