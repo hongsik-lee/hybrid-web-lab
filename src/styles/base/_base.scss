@@ -63,7 +63,7 @@ body.with-sidebar-nav .footer {
 	}
 }
 
-@include mixins.down(tablet) {
+@include mixins.down(laptop) {
 	body.with-sidebar-nav {
 		grid-template-columns: 1fr;
 		grid-template-rows: auto minmax(0, 1fr) auto;

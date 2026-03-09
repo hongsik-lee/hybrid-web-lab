@@ -83,7 +83,7 @@ header[data-component="header"] {
     }
   }
 
-  @include mixins.down(tablet) {
+  @include mixins.down(laptop) {
     .side-nav {
       position: static;
       min-height: auto;
