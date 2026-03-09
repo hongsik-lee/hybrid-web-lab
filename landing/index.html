@@ -1,79 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8">
+    <title>Hybrid Web Lab</title>
+  </head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <body>
+    <header class="hero">
+      <h1 class="title">Hybrid Web Lab</h1>
 
-<title>Hybrid Web Lab</title>
+      <p class="subtitle">Vanilla JS · React · Vue Playground</p>
+    </header>
 
+    <section class="projects">
+      <a class="card" href="../projects/vanilla/index.html">
+        <div class="preview">
+          <iframe src="../projects/vanilla/index.html"></iframe>
+        </div>
 
-</head>
+        <div class="info">
+          <h3>Vanilla JS</h3>
+          <p>Pure JavaScript implementation</p>
+        </div>
+      </a>
 
-<body>
+      <a class="card" href="../projects/react/index.html">
+        <div class="preview">
+          <iframe src="../projects/react/index.html"></iframe>
+        </div>
 
+        <div class="info">
+          <h3>React</h3>
+          <p>Component based architecture</p>
+        </div>
+      </a>
 
-<header class="hero">
+      <a class="card" href="../projects/view/index.html">
+        <div class="preview">
+          <iframe src="../projects/view/index.html"></iframe>
+        </div>
 
-<h1 class="title">Hybrid Web Lab</h1>
+        <div class="info">
+          <h3>View</h3>
+          <p>Mobile-first planner UI</p>
+        </div>
+      </a>
+    </section>
 
-<p class="subtitle">
-Vanilla JS · React · Vue Playground
-</p>
-
-</header>
-
-
-<section class="projects">
-
-<a class="card" href="../projects/vanilla/index.html">
-
-<div class="preview">
-<iframe src="../projects/vanilla/index.html"></iframe>
-</div>
-
-<div class="info">
-<h3>Vanilla JS</h3>
-<p>Pure JavaScript implementation</p>
-</div>
-
-</a>
-
-
-<a class="card" href="../projects/react/index.html">
-
-<div class="preview">
-<iframe src="../projects/react/index.html"></iframe>
-</div>
-
-<div class="info">
-<h3>React</h3>
-<p>Component based architecture</p>
-</div>
-
-</a>
-
-
-<a class="card" href="../projects/view/index.html">
-
-<div class="preview">
-<iframe src="../projects/view/index.html"></iframe>
-</div>
-
-<div class="info">
-<h3>View</h3>
-<p>Mobile-first planner UI</p>
-</div>
-
-</a>
-
-</section>
-
-
-<script type="module" src="./main.js"></script>
-
-</body>
-
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
