@@ -5,6 +5,12 @@
 * {
     box-sizing: border-box;
     word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+html,
+body {
+    max-width: 100%;
 }
 
 body {
@@ -26,6 +32,7 @@ a {
     place-items: center;
     padding: 1.5rem;
     width: 100%;
+    min-width: 0;
 
     @include tablet {
         padding: 0;
@@ -43,6 +50,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 1.125rem;
+    min-width: 0;
 
     @include tablet {
         width: 100%;
@@ -411,6 +419,8 @@ a {
     display: grid;
     place-items: center;
     padding: 1.5rem;
+    width: 100%;
+    min-width: 0;
 }
 
 @supports (min-height: 100dvh) {
@@ -429,6 +439,7 @@ a {
 
 .subpage-card {
     width: min(35rem, 100%);
+    max-width: 100%;
     background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
     border-radius: 1.5rem;
     padding: 1.5rem;
@@ -511,6 +522,7 @@ a {
     left: 50%;
     bottom: 1.75rem;
     transform: translateX(-50%) translateY(1.125rem);
+    width: min(calc(100% - 1.5rem), 30rem);
     background: rgba(11, 18, 40, 0.95);
     color: #fff;
     padding: 0.625rem 0.875rem;

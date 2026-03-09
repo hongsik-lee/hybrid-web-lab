@@ -5,6 +5,12 @@
 	box-sizing: border-box;
 }
 
+html,
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
 body {
 	margin: 0;
 	background: linear-gradient(180deg, vars.$color-page-start 0%, vars.$color-page-end 100%);
@@ -45,6 +51,7 @@ body.with-sidebar-nav .footer {
 
 .subpage-layout {
 	max-width: 1080px;
+	width: 100%;
 	margin: 2rem auto;
 	padding: 0 1.5rem;
 }
