@@ -18,6 +18,8 @@
     font-size: 1.1rem;
     font-weight: 700;
     color: vars.$color-text;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .meta {
@@ -33,6 +35,8 @@
     margin: 0;
     line-height: 1.6;
     color: rgba(0, 0, 0, 0.8);
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   @include mixins.down(mobile) {

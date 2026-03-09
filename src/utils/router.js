@@ -39,5 +39,8 @@ export function buildPageUrl(routeOrPath, queryParams) {
 }
 
 export function navigate(routeOrPath, queryParams) {
+  if (typeof window !== "undefined" && window.__globalPageLoader?.show) {
+    window.__globalPageLoader.show()
+  }
   window.location.href = buildPageUrl(routeOrPath, queryParams)
 }

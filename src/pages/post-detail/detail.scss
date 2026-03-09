@@ -52,6 +52,8 @@
       line-height: 1.7;
       white-space: pre-wrap;
       color: rgba(0, 0, 0, 0.9);
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
   }
 
@@ -102,6 +104,8 @@
       .comment-body {
         line-height: 1.6;
         color: vars.$color-text;
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
     }
 

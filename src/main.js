@@ -1,4 +1,5 @@
 import "./styles/main.scss"
+import "./utils/pageLoader"
 
 import { loadComponents } from "./utils/componentLoader"
 
