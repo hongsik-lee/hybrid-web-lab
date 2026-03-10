@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>액션 - Vue Focus Quest</title>
+</head>
+<body data-page="action">
+    <main class="quest-shell sub">
+        <section class="quest-page">
+            <a href="../index.html" class="back-link">← 홈으로</a>
+            <h1>빠른 액션</h1>
+            <p id="actionMessage" class="guide">선택한 액션을 처리 중...</p>
+            <div class="row">
+                <a class="ghost-link" href="./plans.html">보드 열기</a>
+                <a class="ghost-link" href="./challenge.html">챌린지</a>
+                <a class="ghost-link" href="./stats.html">통계 확인</a>
+            </div>
+        </section>
+    </main>
+
+    <p class="status-toast" id="statusToast" aria-live="polite"></p>
+    <div id="confettiLayer" aria-hidden="true"></div>
+
+    <script type="module" src="../main-page.js"></script>
+    <a class="floating-home-btn" href="../../../landing/index.html" aria-label="메인 화면으로 이동">메인</a>
+</body>
+</html>

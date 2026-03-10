@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>루틴 B - Vue Focus Quest</title>
+</head>
+<body data-page="template" data-template="balance">
+    <main class="quest-shell sub">
+        <section class="quest-page">
+            <a href="../index.html" class="back-link">← 홈으로</a>
+            <h1 id="templateTitle">루틴 로딩 중...</h1>
+            <p id="templateDesc" class="guide"></p>
+            <ul id="templateList" class="check-list"></ul>
+            <div class="row">
+                <button type="button" id="applyTemplateBtn">오늘 퀘스트로 추가</button>
+                <a class="ghost-link" href="./action.html?type=prep">준비 액션 보기</a>
+            </div>
+        </section>
+    </main>
+
+    <p class="status-toast" id="statusToast" aria-live="polite"></p>
+    <div id="confettiLayer" aria-hidden="true"></div>
+
+    <script type="module" src="../main-page.js"></script>
+    <a class="floating-home-btn" href="../../../landing/index.html" aria-label="메인 화면으로 이동">메인</a>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설정 - Vue Focus Quest</title>
+</head>
+<body data-page="profile">
+    <main class="quest-shell sub">
+        <section class="quest-page">
+            <a href="../index.html" class="back-link">← 홈으로</a>
+            <h1>프로필 · 설정</h1>
+            <p id="profileSummary" class="guide">현재 설정을 불러오는 중...</p>
+
+            <form id="profileForm" class="panel stack">
+                <label>
+                    닉네임
+                    <input type="text" id="profileNameInput" required>
+                </label>
+                <label>
+                    하루 목표 집중 세션
+                    <input type="number" id="profileGoalInput" min="1" max="12" required>
+                </label>
+                <label class="toggle-row">
+                    <input type="checkbox" id="profileFocusDefault">
+                    페이지 진입 시 포커스 모드 기본 활성화
+                </label>
+                <button type="submit">저장</button>
+            </form>
+
+            <section class="panel">
+                <h2>빠른 이동</h2>
+                <div class="row">
+                    <a class="ghost-link" href="./challenge.html">챌린지</a>
+                    <a class="ghost-link" href="./stats.html">통계</a>
+                    <button type="button" class="btn-danger" id="resetDataBtn">데이터 초기화</button>
+                </div>
+            </section>
+
+            <nav class="bottom-nav" aria-label="하단 메뉴">
+                <a href="../index.html">홈</a>
+                <a href="./plans.html">보드</a>
+                <a href="./stats.html">통계</a>
+                <a href="./profile.html" class="active">설정</a>
+            </nav>
+        </section>
+    </main>
+
+    <p class="status-toast" id="statusToast" aria-live="polite"></p>
+    <div id="confettiLayer" aria-hidden="true"></div>
+
+    <script type="module" src="../main-page.js"></script>
+    <a class="floating-home-btn" href="../../../landing/index.html" aria-label="메인 화면으로 이동">메인</a>
+</body>
+</html>

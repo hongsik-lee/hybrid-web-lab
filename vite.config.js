@@ -22,16 +22,16 @@ module.exports = defineConfig({
                 vanillaMypage: resolve(__dirname, 'src/pages/mypage/mypage.html'),
                 vanillaProfile: resolve(__dirname, 'src/pages/profile/profile.html'),
                 react: resolve(__dirname, 'projects/react/index.html'),
-                viewHome: resolve(__dirname, 'projects/view/index.html'),
-                viewAction: resolve(__dirname, 'projects/view/pages/action.html'),
-                viewChallenge: resolve(__dirname, 'projects/view/pages/challenge.html'),
-                viewDay: resolve(__dirname, 'projects/view/pages/day.html'),
-                viewPlanBalance: resolve(__dirname, 'projects/view/pages/plan-balance.html'),
-                viewPlanJudo: resolve(__dirname, 'projects/view/pages/plan-judo.html'),
-                viewPlans: resolve(__dirname, 'projects/view/pages/plans.html'),
-                viewProfile: resolve(__dirname, 'projects/view/pages/profile.html'),
-                viewSearch: resolve(__dirname, 'projects/view/pages/search.html'),
-                viewStats: resolve(__dirname, 'projects/view/pages/stats.html')
+                vueHome: resolve(__dirname, 'projects/vue/index.html'),
+                vueAction: resolve(__dirname, 'projects/vue/pages/action.html'),
+                vueChallenge: resolve(__dirname, 'projects/vue/pages/challenge.html'),
+                vueDay: resolve(__dirname, 'projects/vue/pages/day.html'),
+                vuePlanBalance: resolve(__dirname, 'projects/vue/pages/plan-balance.html'),
+                vuePlanJudo: resolve(__dirname, 'projects/vue/pages/plan-judo.html'),
+                vuePlans: resolve(__dirname, 'projects/vue/pages/plans.html'),
+                vueProfile: resolve(__dirname, 'projects/vue/pages/profile.html'),
+                vueSearch: resolve(__dirname, 'projects/vue/pages/search.html'),
+                vueStats: resolve(__dirname, 'projects/vue/pages/stats.html')
             }
         }
     }

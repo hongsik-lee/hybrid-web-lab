@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통계 - Vue Focus Quest</title>
+</head>
+<body data-page="stats">
+    <main class="quest-shell sub">
+        <section class="quest-page">
+            <a href="../index.html" class="back-link">← 홈으로</a>
+            <h1>성장 대시보드</h1>
+
+            <section class="stats-grid">
+                <article class="panel mini"><p>레벨</p><strong id="statsLevelValue">1</strong></article>
+                <article class="panel mini"><p>XP</p><strong id="statsXpValue">0</strong></article>
+                <article class="panel mini"><p>코인</p><strong id="statsCoinValue">0</strong></article>
+                <article class="panel mini"><p>세션</p><strong id="statsSessionValue">0</strong></article>
+                <article class="panel mini"><p>연속</p><strong id="statsStreakValue">0일</strong></article>
+            </section>
+
+            <section class="panel">
+                <div class="row between">
+                    <h2>활동 히트맵</h2>
+                    <div class="row" id="rangeGroup">
+                        <button type="button" class="range-btn active" data-range="week">7일</button>
+                        <button type="button" class="range-btn" data-range="month">28일</button>
+                    </div>
+                </div>
+                <div id="heatmapGrid" class="heatmap-grid"></div>
+                <p id="heatmapDetail" class="guide">날짜를 눌러 상세 활동을 확인하세요.</p>
+            </section>
+
+            <section class="panel">
+                <h2>인사이트</h2>
+                <ul id="insightList" class="insight-list"></ul>
+            </section>
+
+            <nav class="bottom-nav" aria-label="하단 메뉴">
+                <a href="../index.html">홈</a>
+                <a href="./plans.html">보드</a>
+                <a href="./stats.html" class="active">통계</a>
+                <a href="./profile.html">설정</a>
+            </nav>
+        </section>
+    </main>
+
+    <p class="status-toast" id="statusToast" aria-live="polite"></p>
+    <div id="confettiLayer" aria-hidden="true"></div>
+
+    <script type="module" src="../main-page.js"></script>
+    <a class="floating-home-btn" href="../../../landing/index.html" aria-label="메인 화면으로 이동">메인</a>
+</body>
+</html>

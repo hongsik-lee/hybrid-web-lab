@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일자별 보기 - Vue Focus Quest</title>
+</head>
+<body data-page="day">
+    <main class="quest-shell sub">
+        <section class="quest-page">
+            <a href="../index.html" class="back-link">← 홈으로</a>
+            <h1>일자별 퀘스트</h1>
+            <p id="dayHeaderText" class="guide">선택 날짜 데이터를 불러오는 중...</p>
+            <ul id="dayTaskList" class="task-list"></ul>
+            <a class="ghost-link" href="./plans.html">보드로 이동</a>
+        </section>
+    </main>
+
+    <p class="status-toast" id="statusToast" aria-live="polite"></p>
+    <div id="confettiLayer" aria-hidden="true"></div>
+
+    <script type="module" src="../main-page.js"></script>
+    <a class="floating-home-btn" href="../../../landing/index.html" aria-label="메인 화면으로 이동">메인</a>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Hybrid Web Lab
 
-랜딩, 바닐라 게시판 프로젝트, React 식단 플래너, View 플래너를 하나의 Vite 멀티페이지 구성으로 관리하는 저장소입니다.
+랜딩, 바닐라 게시판 프로젝트, React 식단 플래너, Vue 플래너를 하나의 Vite 멀티페이지 구성으로 관리하는 저장소입니다.
 
 ## 배포 바로가기
 
@@ -46,8 +46,8 @@
   - 모달로 새 식단 추가
   - 진행률(Progress) / 인기 식단(Recipe Lounge) 화면 확인
 
-### 4) View Planner
-- 진입: `projects/view/index.html`
+### 4) Vue Planner
+- 진입: `projects/vue/index.html`
 - 사용자가 이용할 수 있는 기능
   - 온보딩 이름 입력 및 프로필 정보 저장
   - 요일 선택 기반 일정 확인

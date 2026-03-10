@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀘스트 보드 - Vue Focus Quest</title>
+</head>
+<body data-page="plans">
+    <main class="quest-shell sub">
+        <section class="quest-page">
+            <a href="../index.html" class="back-link">← 홈으로</a>
+            <h1>퀘스트 보드</h1>
+            <p class="guide">카드를 드래그해서 상태를 바꾸세요. 완료 칸으로 이동하면 보상이 지급됩니다.</p>
+
+            <form id="planQuickAddForm" class="task-form">
+                <input type="text" id="planTitleInput" placeholder="새 퀘스트" required>
+                <input type="number" id="planMinutesInput" min="10" max="180" value="25" required>
+                <select id="planPriorityInput">
+                    <option value="high">중요</option>
+                    <option value="medium" selected>보통</option>
+                    <option value="low">가벼움</option>
+                </select>
+                <button type="submit">추가</button>
+            </form>
+
+            <section class="kanban" id="kanbanBoard">
+                <article class="column">
+                    <h2>할 일</h2>
+                    <ul id="boardTodo" class="board-list" data-status="todo"></ul>
+                </article>
+                <article class="column">
+                    <h2>진행 중</h2>
+                    <ul id="boardDoing" class="board-list" data-status="doing"></ul>
+                </article>
+                <article class="column">
+                    <h2>완료</h2>
+                    <ul id="boardDone" class="board-list" data-status="done"></ul>
+                </article>
+            </section>
+
+            <section class="panel mini">
+                <h3>보관됨</h3>
+                <ul id="archiveList" class="task-list compact"></ul>
+            </section>
+
+            <nav class="bottom-nav" aria-label="하단 메뉴">
+                <a href="../index.html">홈</a>
+                <a href="./plans.html" class="active">보드</a>
+                <a href="./stats.html">통계</a>
+                <a href="./profile.html">설정</a>
+            </nav>
+        </section>
+    </main>
+
+    <p class="status-toast" id="statusToast" aria-live="polite"></p>
+    <div id="confettiLayer" aria-hidden="true"></div>
+
+    <script type="module" src="../main-page.js"></script>
+    <a class="floating-home-btn" href="../../../landing/index.html" aria-label="메인 화면으로 이동">메인</a>
+</body>
+</html>

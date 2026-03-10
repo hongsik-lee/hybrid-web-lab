@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챌린지 - Vue Focus Quest</title>
+</head>
+<body data-page="challenge">
+    <main class="quest-shell sub">
+        <section class="quest-page">
+            <a href="../index.html" class="back-link">← 홈으로</a>
+            <h1 id="challengeTitle">오늘의 챌린지</h1>
+            <p id="challengeDesc" class="guide">오늘 목표를 불러오는 중...</p>
+
+            <section class="panel">
+                <div class="row between">
+                    <h2>진행률</h2>
+                    <strong id="challengeProgressText">0%</strong>
+                </div>
+                <div class="timer-progress"><span id="challengeProgressFill"></span></div>
+                <ul id="challengeChecklist" class="check-list"></ul>
+                <button type="button" id="claimRewardBtn">보상 받기</button>
+            </section>
+
+            <section class="panel">
+                <h3>추천 루틴</h3>
+                <div class="row">
+                    <a class="ghost-link" href="./plan-judo.html">집중 루틴 A</a>
+                    <a class="ghost-link" href="./plan-balance.html">집중 루틴 B</a>
+                    <a class="ghost-link" href="./action.html?type=share">결과 공유</a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <p class="status-toast" id="statusToast" aria-live="polite"></p>
+    <div id="confettiLayer" aria-hidden="true"></div>
+
+    <script type="module" src="../main-page.js"></script>
+    <a class="floating-home-btn" href="../../../landing/index.html" aria-label="메인 화면으로 이동">메인</a>
+</body>
+</html>

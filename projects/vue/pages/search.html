@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 - Vue Focus Quest</title>
+</head>
+<body data-page="search">
+    <main class="quest-shell sub">
+        <section class="quest-page">
+            <a href="../index.html" class="back-link">← 홈으로</a>
+            <h1>퀘스트 검색</h1>
+            <p class="guide">작업명으로 빠르게 찾아 이동하세요.</p>
+
+            <form id="searchForm" class="task-form">
+                <input type="text" id="searchInput" placeholder="예) 발표, 운동, 정리">
+                <button type="submit">검색</button>
+            </form>
+
+            <div class="row" id="searchKeywords">
+                <button type="button" class="ghost-link" data-keyword="집중">집중</button>
+                <button type="button" class="ghost-link" data-keyword="운동">운동</button>
+                <button type="button" class="ghost-link" data-keyword="완료">완료</button>
+            </div>
+
+            <ul id="searchResultList" class="task-list compact"></ul>
+        </section>
+    </main>
+
+    <p class="status-toast" id="statusToast" aria-live="polite"></p>
+    <div id="confettiLayer" aria-hidden="true"></div>
+
+    <script type="module" src="../main-page.js"></script>
+    <a class="floating-home-btn" href="../../../landing/index.html" aria-label="메인 화면으로 이동">메인</a>
+</body>
+</html>
